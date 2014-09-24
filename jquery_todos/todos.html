@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TodoMVC</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script data-require="jquery@1.11.0" data-semver="1.11.0"
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css" />
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <script src="app/todoView.js"></script>
+    <script src="app/todoModel.js"></script>
+    <script src="app/todoList.js"></script>
+    <script src="app/app.js"></script>
+</head>
+<body>
+
+
+<section id="todoapp">
+    <header id="header">
+        <h1>todos</h1>
+        <input id="new-todo" placeholder="What needs to be done?" autofocus>
+    </header>
+    <section id="main">
+
+
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list">
+
+        </ul>
+    </section>
+    <footer id="footer"></footer>
+</section>
+<footer id="info">
+    <p>Double-click to edit a todo</p>
+    <span id="todo-count"><strong></strong>0 itmes left</span>
+    <ul id="filters">
+        <li>
+            <a class="selected" href="#/">All</a>
+        </li>
+        <li>
+            <a class="active" href="#/active">Active</a>
+        </li>
+        <li>
+            <a class="completed" href="#/completed">Completed</a>
+        </li>
+    </ul>
+    <!--if (completed) -->
+    <button id="clear-completed">Clear 0 completed</button>
+
+
+</footer>
+<script type="text/template" id="todo-template">
+
+<li style="display: none" id="todoBox" class="todo" >
+    <div class="view">
+        <input class="toggle" id="todocheck" type="checkbox">
+        <label id="todoValue"></label>
+        <button class="destroy"></button>
+    </div>
+    <input id="todoInputBox" class="edit" value="todo内容" >
+</li>
+
+</script>
+
+<script type="text/template" id="stats-template">
+    <span id="todo-count"><strong>5</strong> itmes left</span>
+    <ul id="filters">
+        <li>
+            <a class="selected" href="#/">All</a>
+        </li>
+        <li>
+            <a  href="#/active">Active</a>
+        </li>
+        <li>
+            <a  href="#/completed">Completed</a>
+        </li>
+    </ul>
+
+    <% if (completed) { %>
+    <button id="clear-completed">Clear completed (<%= completed %>)</button>
+    <% } %>
+</script>
+
+</body>
+</html>
